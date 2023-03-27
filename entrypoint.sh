@@ -6,10 +6,9 @@ SOURCE="${3:-$GITHUB_WORKSPACE}"
 #echo "Config: $2"
 #echo "Source $SOURCE"
 
-rationale=$(/tmp/senf once --config "$2" --source "$SOURCE"  --output json)
+/tmp/senf once --config "$2" --source "$SOURCE"  --output json > /tmp/result.json
 ret=$?
 
-#echo "Policy check exit code $ret"
-echo "$rationale"
+/summary.sh /tmp/result.json "$GITHUB_STEP_SUMMARY"
 
 exit $ret
