@@ -5,6 +5,7 @@ Github Action for Seedwing enforcer
 ## Usage
 
 ```
+- uses actions/checkout@v3
 - name: Apply company policies
   uses: seedwing-io/enforcer-action@v1
   with:
