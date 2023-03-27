@@ -37,8 +37,7 @@ while read -r detail; do
   if [ "$outcome" = "Ok" ]; then
     echo "| $purl | ✔️ | |" >> $OUTPUT
   else
-    reason=$(echo "$outcome" | jq -r '.RejectedRaw')
-    echo $reason
+    reason=$(echo "$outcome" | jq -r '.RejectedRaw.rationale[]?.reason')
     echo "| $purl | ❌ | $reason |" >> $OUTPUT
   fi
 done <<< "$details"
