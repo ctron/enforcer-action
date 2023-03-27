@@ -6,7 +6,7 @@ SOURCE="${3:-$GITHUB_WORKSPACE}"
 #echo "Config: $2"
 #echo "Source $SOURCE"
 
-/tmp/senf once --config "$2" --source "$SOURCE"  --output json > /tmp/result.json
+/senf once --config "$2" --source "$SOURCE"  --output json > /tmp/result.json
 ret=$?
 
 /summary.sh /tmp/result.json "$GITHUB_STEP_SUMMARY"
