@@ -3,7 +3,7 @@ description: 'Apply seedwing policies to your project'
 author: 'seedwing-io team'
 branding:
   icon: play-circle
-  color: black
+  color: gray-dark
 inputs:
   policy-dir:
     description: Additional policies to use for enforcement
@@ -12,7 +12,7 @@ inputs:
     description: Path to configuration file for the enforcer.
     required: true
   source:
-    description: Path to the manifest file. pom.xml and Carg.toml file are auto-detected. Defaults to the project root.
+    description: Path to the manifest file. pom.xml and Cargo.toml file are auto-detected. Defaults to the project root.
     required: false
 
 runs:
