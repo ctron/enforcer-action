@@ -1,10 +1,10 @@
-# enforcer-action
+# Seedwing Enforcer Action
 
-Github Action for Seedwing enforcer
+GitHub Action for the Seedwing enforcer
 
 ## Usage
 
-```
+```yaml
 - uses actions/checkout@v3
 - name: Apply company policies
   uses: seedwing-io/enforcer-action@v1
@@ -14,18 +14,18 @@ Github Action for Seedwing enforcer
     source: pom.xml
 ```
 
-Policy file `policy.dog` example : 
+Policy file `policy.dog` example :
+
 ```
 pattern not-vulnerable = {
-    purl: uri::purl(openvex::not-affected),
+    purl: uri::purl(osv::scan-purl(openvex::from-osv(openvex::not-affected)))
 }
 ```
 
-Enforcer config file `.enforcer.yaml` : 
-```
+Enforcer config file `.enforcer.yaml` :
+
+```yaml
 dependencies:
   policy: ./policy.dog
   requires: "not-vulnerable"
-enforcer:
-  rationale: yaml
 ```

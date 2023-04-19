@@ -6,9 +6,10 @@ SOURCE="${3:-$GITHUB_WORKSPACE}"
 #echo "Config: $2"
 #echo "Source $SOURCE"
 
-/senf once --config "$2" --source "$SOURCE"  --output json > /tmp/result.json
-ret=$?
+# next version (post alpha.15)
+# /senf once --root "$2" --output markdown > "$GITHUB_STEP_SUMMARY"
 
-/summary.sh /tmp/result.json "$GITHUB_STEP_SUMMARY"
+/senf once --config "$2" --source "$SOURCE"  --output markdown > "$GITHUB_STEP_SUMMARY"
+ret=$?
 
 exit $ret
