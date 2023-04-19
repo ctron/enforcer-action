@@ -1,20 +1,19 @@
 # Seedwing Enforcer Action
 
-GitHub Action for the Seedwing enforcer
+GitHub Action for the Seedwing enforcer.
 
 ## Usage
 
 ```yaml
-- uses actions/checkout@v3
-- name: Apply company policies
+- uses: actions/checkout@v3
+- name: Enforce Seedwing policies
   uses: seedwing-io/enforcer-action@v1
   with:
-    policy-dir: policies
     enforcer-config: .enforcer.yaml
     source: pom.xml
 ```
 
-Policy file `policy.dog` example :
+Policy file `policy.dog` example:
 
 ```
 pattern not-vulnerable = {
@@ -22,7 +21,7 @@ pattern not-vulnerable = {
 }
 ```
 
-Enforcer config file `.enforcer.yaml` :
+Enforcer config file `.enforcer.yaml`:
 
 ```yaml
 dependencies:

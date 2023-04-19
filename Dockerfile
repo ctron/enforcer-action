@@ -4,6 +4,5 @@ RUN curl -L --output /senf https://github.com/seedwing-io/seedwing-enforcer/rele
 RUN microdnf update -y && microdnf -y install jq
 
 COPY entrypoint.sh /entrypoint.sh
-COPY summary.sh /summary.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

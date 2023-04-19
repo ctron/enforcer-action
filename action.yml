@@ -1,17 +1,14 @@
 name: 'seedwing-action'
-description: 'Apply seedwing policies to your project'
+description: 'Enforce seedwing policies on your project'
 author: 'seedwing-io team'
 branding:
   icon: play-circle
   color: gray-dark
 inputs:
-  policy-dir:
-    description: Additional policies to use for enforcement
-    required: true
   enforcer-config:
     description: Path to configuration file for the enforcer.
-    required: true
-  source:
+    required: true # TODO: should become optional, default to root
+  source: # should be dropped and come from the enforcer config
     description: Path to the manifest file. pom.xml and Cargo.toml file are auto-detected. Defaults to the project root.
     required: false
 
@@ -19,6 +16,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.policy-dir }}
     - ${{ inputs.enforcer-config }}
     - ${{ inputs.source }}
