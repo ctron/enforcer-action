@@ -8,9 +8,11 @@ GitHub Action for the Seedwing enforcer.
 - uses: actions/checkout@v3
 - name: Enforce Seedwing policies
   uses: seedwing-io/enforcer-action@v1
+  
+- name: Enforce Seedwing policies (with a different root)
+  uses: seedwing-io/enforcer-action@v1
   with:
-    enforcer-config: .enforcer.yaml
-    source: pom.xml
+    root: ./sub-project
 ```
 
 Policy file `policy.dog` example:

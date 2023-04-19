@@ -5,16 +5,12 @@ branding:
   icon: play-circle
   color: gray-dark
 inputs:
-  enforcer-config:
-    description: Path to configuration file for the enforcer.
-    required: true # TODO: should become optional, default to root
-  source: # should be dropped and come from the enforcer config
-    description: Path to the manifest file. pom.xml and Cargo.toml file are auto-detected. Defaults to the project root.
+  root:
+    description: Path to the root of the project, containing the .enforcer.yaml file. Defaults to the workspace.
     required: false
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.enforcer-config }}
-    - ${{ inputs.source }}
+    - ${{ inputs.root }}
